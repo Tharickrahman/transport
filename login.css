@@ -1,0 +1,142 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body */
+body {
+  background-color: #000; /* pure black */
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Back to Home Button */
+.back-home {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  color: #ffb74d;
+  text-decoration: none;
+  font-size: 1rem;
+  z-index: 100;
+}
+
+.back-home:hover {
+  text-decoration: underline;
+}
+
+/* Overlay */
+.login-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+.forgot-password {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.forgot-password a {
+  color: #ffb74d;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+
+/* Show overlay */
+.login-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+.login-subtitle {
+  color: #f5e0c3;
+  font-size: 1rem;
+  margin-bottom: 25px;
+  line-height: 1.4;
+}
+
+/* Login Card (Glass Effect) */
+.login-card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  padding: 40px 30px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  transform: translateY(-50px);
+  transition: transform 0.5s ease;
+  color: #fff;
+}
+
+.login-overlay.active .login-card {
+  transform: translateY(0);
+}
+
+/* Title */
+.login-title {
+  color: #ffb74d;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+/* Inputs */
+.login-card input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+.login-card input::placeholder {
+  color: #ddd;
+}
+
+/* Login Button */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #ffb74d;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #000;
+}
+
+.login-btn:hover {
+  background-color: #ffc870;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 30px 20px;
+  }
+  .login-title {
+    font-size: 1.6rem;
+  }
+}

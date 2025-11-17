@@ -1,62 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transport - Login</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stackly Transport</title>
+  <link rel="stylesheet" href="login.css">
+ 
 </head>
+
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <!-- Logo -->
-            <div class="logo">
-                <a href="index.html">
-                    <img src="assets/trans_logo-removebg-preview.png" alt="Transport Logo" class="logo-img">
-                </a>
-            </div>
-            
-            <!-- Navigation Menu -->
-            <ul class="nav-menu" id="navMenu">
-                <li class="nav-item home-dropdown">
-                    <a href="home1.html" class="nav-link">Home1</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="home2.html" class="dropdown-link">Home2</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#services" class="nav-link">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a href="track.html" class="nav-link">Track</a>
-                </li>
-                <li class="nav-item">
-                    <a href="login.html" class="nav-link">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            
-            <!-- Hamburger Menu -->
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
+  <!-- Back to Home Button -->
+  <a href="index.html" class="back-home">← Back to Home</a>
 
-    <main>
-        <h1>Login</h1>
-        <p>Login page content will go here.</p>
-    </main>
+  <!-- Login Modal -->
+  <div class="login-overlay" id="loginOverlay">
+    <div class="login-card">
+      <h2 class="login-title">Welcome!</h2>
+      <p class="login-subtitle">Safe & reliable transport at your fingertips</p>
 
-    <script src="script.js"></script>
+      <form id="loginForm">
+        <input type="email" placeholder="Email Address" required>
+        <input type="password" placeholder="Password" required>
+      
+        <p class="forgot-password"><a href="404.html" id="forgotPassword">Forgot Password?</a></p>
+
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Show login overlay on page load
+    const overlay = document.getElementById('loginOverlay');
+    overlay.classList.add('active');
+
+    // Handle form submit
+    const loginForm = document.getElementById('loginForm');
+    loginForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      // After login, redirect to 404 page
+      window.location.href = "404.html";
+    });
+
+  </script>
 </body>
-</html>
 
+</html>
