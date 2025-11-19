@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found</title>
+ 
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+    }
+
+    .container {
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      text-align: center;
+      padding: 60px 40px;
+      width: 90%;
+      max-width: 400px;
+      color: white;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+      font-size: 80px;
+      margin-bottom: 10px;
+      background: linear-gradient(45deg, #00f2fe, #4facfe, #00f2fe);
+      background-clip: text;
+      color: transparent;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .home-btn {
+      display: inline-block;
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(90deg, #2563eb, #9333ea);
+      padding: 12px 30px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .home-btn:hover {
+      background: linear-gradient(90deg, #9333ea, #2563eb);
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(147, 51, 234, 0.6);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 60px; }
+      p { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>404</h1>
+    <p>Oops! "Package not found… and neither is this page. Let’s return to safety!"</p>
+    <a href="index.html" class="home-btn">Back to Home</a>
+  </div>
+</body>
+</html>

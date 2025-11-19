@@ -1,4 +1,14 @@
 /* Reset and Base Styles */
+:root {
+    --navbar-height: 80px;
+}
+
+.contact-header {
+    padding-top: calc(var(--navbar-height) + 20px);
+}
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -235,5 +245,364 @@ body {
     .dropdown-link {
         padding: 10px 40px;
         font-size: 14px;
+    }
+}
+
+/* --- HEADER --- */
+.contact-header {
+    background: linear-gradient(135deg, #1d4ed8, #0f172a);
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+    padding-top: 120px;
+    height: 50vh;
+}
+
+.contact-header h1 {
+    font-size: 2.6rem;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.contact-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* --- WRAPPER --- */
+.contact-wrapper {
+    max-width: 1200px;
+    margin: 60px auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+/* --- CONTACT INFO --- */
+.contact-info {
+    background: #0f172a;
+    color: #e2e8f0;
+    padding: 32px;
+    border-radius: 20px;
+}
+
+.contact-info h2 {
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.info-box {
+    margin-bottom: 20px;
+}
+
+.info-box h3 {
+    color: #93c5fd;
+    margin-bottom: 6px;
+}
+
+/* --- FORM --- */
+.contact-form {
+    background: #ffffff;
+    padding: 32px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form h2 {
+    margin-bottom: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: none;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 14px;
+    background: #2563eb;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: #1e40af;
+}
+
+/* --- MAP --- */
+.map-section iframe {
+    width: 100%;
+    height: 350px;
+    border: none;
+    margin-top: 40px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-header h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Footer */
+/* -------------------------
+   FOOTER BASE STYLES
+------------------------- */
+.site-footer {
+    background: #0f172a; /* Dark navy logistics theme */
+    color: #e2e8f0;
+    padding: 60px 20px 30px;
+    font-family: "Poppins", sans-serif;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+/* -------------------------
+   BRAND + ABOUT SECTION
+------------------------- */
+.footer-brand {
+    flex: 1.6;
+    min-width: 280px;
+}
+
+.footer-logo {
+    width: 160px;
+    margin-bottom: 20px;
+}
+
+.footer-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin-bottom: 20px;
+}
+
+/* -------------------------
+   EMAIL SUBSCRIBE
+------------------------- */
+.footer-subscribe {
+    margin-top: 20px;
+}
+
+.subscribe-label {
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.subscribe-form {
+    display: flex;
+    gap: 10px;
+}
+
+.subscribe-input {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+.subscribe-button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-weight: 600;
+}
+
+.subscribe-button:hover {
+    background: #1d4ed8;
+}
+
+.subscribe-hint {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+/* -------------------------
+   FOOTER LINKS
+------------------------- */
+.footer-columns {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    min-width: 250px;
+}
+
+.footer-column h3 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: 10px;
+}
+
+.footer-column a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-column a:hover {
+    color: #fff;
+}
+
+/* -------------------------
+   FOOTER BOTTOM
+------------------------- */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin-top: 40px;
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;   /* Stack items */
+    align-items: center;      /* Center horizontally */
+    justify-content: center;  
+    text-align: center;       /* Center text */
+    gap: 12px;
+   
+}
+
+.footer-bottom-left p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 12px;
+    margin-top: 6px;
+     justify-content: center;
+}
+
+.footer-legal a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.footer-legal a:hover {
+    color: #fff;
+}
+
+/* -------------------------
+   SOCIAL ICONS
+------------------------- */
+.social-icons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.social-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.social-icon:hover {
+    background: #2563eb;
+}
+
+/* -------------------------
+   RESPONSIVE STYLES
+------------------------- */
+@media (max-width: 900px) {
+    .footer-inner {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .footer-columns {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 600px) {
+    .subscribe-form {
+        flex-direction: column;
+    }
+
+    .subscribe-button {
+        width: 100%;
+    }
+
+    .footer-columns {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transport - Track</title>
     <link rel="stylesheet" href="dash.css">
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
@@ -16,7 +18,7 @@
                     <img src="assets/trans_logo-removebg-preview.png" alt="Transport Logo" class="logo-img">
                 </a>
             </div>
-            
+
             <!-- Navigation Menu -->
             <ul class="nav-menu" id="navMenu">
                 <li class="nav-item home-dropdown">
@@ -34,14 +36,16 @@
                 <li class="nav-item">
                     <a href="track.html" class="nav-link">Track</a>
                 </li>
-                <li class="nav-item">
-                    <a href="login.html" class="nav-link">Login</a>
-                </li>
+                
                 <li class="nav-item">
                     <a href="#contact" class="nav-link">Contact</a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link">Login</a>
+                </li>
             </ul>
-            
+
             <!-- Hamburger Menu -->
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
@@ -50,10 +54,197 @@
             </div>
         </div>
     </nav>
+    <!-- Dashboard Section -->
+    <section class="dashboard" id="dashboard">
+        <div class="section-heading">
+            <p class="eyebrow"><b>Network dashboard</b></p>
+            <h2>Visualize transportation performance in real time</h2>
+            <p>Compare day, week, month, and year performance to keep your network responsive.</p>
+        </div>
 
-   
+        <div class="dashboard-tabs" role="tablist">
+            <button class="dashboard-tab active" data-range="day" role="tab" aria-selected="true">Day</button>
+            <button class="dashboard-tab" data-range="week" role="tab">Week</button>
+            <button class="dashboard-tab" data-range="month" role="tab">Month</button>
+            <button class="dashboard-tab" data-range="year" role="tab">Year</button>
+        </div>
+
+        <div class="dashboard-grid">
+            <article class="chart-card primary">
+                <div class="card-header">
+                    <div>
+                        <p class="eyebrow">Traffic volume</p>
+                        <h3><span id="rangeLabel">Today's</span> utilization snapshot</h3>
+                    </div>
+                    <span class="range-pill" data-dashboard-range>Day view</span>
+                </div>
+                <canvas id="volumeChart" width="700" height="320" aria-label="Transport volume chart"
+                    role="img"></canvas>
+                <div class="chart-legend">
+                    <span><span class="legend-dot primary"></span> Loads moved</span>
+                    <span><span class="legend-dot secondary"></span> Capacity available</span>
+                </div>
+            </article>
+
+            <article class="chart-card secondary">
+                <div class="card-header">
+                    <div>
+                        <p class="eyebrow">Lane spotlight</p>
+                        <h3>High-velocity corridors</h3>
+                    </div>
+                    <span class="badge neutral">Live refresh</span>
+                </div>
+                <ul class="lane-list" id="laneList">
+                    <!-- Populated via JS -->
+                </ul>
+                <div class="lane-footnote">Top 4 lanes ranked by load volume for this view.</div>
+            </article>
+        </div>
+
+        <div class="summary-grid">
+            <article class="summary-card">
+                <span class="label">Shipments booked</span>
+                <strong id="statShipments">0</strong>
+                <small>vs last period: <span id="statShipmentsDelta">+0%</span></small>
+            </article>
+            <article class="summary-card">
+                <span class="label">On-time rate</span>
+                <strong id="statOnTime">0%</strong>
+                <small>Target 98%</small>
+            </article>
+            <article class="summary-card">
+                <span class="label">Avg. distance</span>
+                <strong id="statDistance">0 mi</strong>
+                <small>Per shipment</small>
+            </article>
+            <article class="summary-card">
+                <span class="label">Emissions delta</span>
+                <strong id="statEmissions">0%</strong>
+                <small>Against baseline</small>
+            </article>
+        </div>
+
+        <div class="insights-grid">
+            <article class="insight-card positive">
+                <header>
+                    <p class="eyebrow">Network health</p>
+                    <span class="badge success">Stable</span>
+                </header>
+                <h3>Fill rate holding above 96%</h3>
+                <p>Capacity planning models kept surge week demand in check. No action required.</p>
+            </article>
+            <article class="insight-card warning">
+                <header>
+                    <p class="eyebrow">Exceptions</p>
+                    <span class="badge warning">12 holds</span>
+                </header>
+                <h3>Weather impact in midwest</h3>
+                <p>Route ORD → DEN facing 2 hour delays. Recommend proactive customer alerts.</p>
+            </article>
+            <article class="insight-card neutral">
+                <header>
+                    <p class="eyebrow">Sustainability</p>
+                    <span class="badge neutral">Scope 3</span>
+                </header>
+                <h3>Carbon intensity down 4.2%</h3>
+                <p>Mode shifts to rail saved 18.4 tons CO₂e over the last 30 days.</p>
+            </article>
+        </div>
+
+        <div class="reports-layout">
+            <article class="report-card">
+                <header class="card-header">
+                    <div>
+                        <p class="eyebrow">Logistics report</p>
+                        <h3>Service performance by mode</h3>
+                    </div>
+                    <a href="404.html">
+                        <button class="btn ghost btn-small">Download CSV</button>
+                    </a>
+                </header>
+                <table class="report-table" aria-label="Mode performance table">
+                    <thead>
+                        <tr>
+                            <th>Mode</th>
+                            <th>Loads</th>
+                            <th>OTD</th>
+                            <th>Avg cost / mi</th>
+                            <th>Trend</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Full truckload</td>
+                            <td>482</td>
+                            <td>97.2%</td>
+                            <td>$2.84</td>
+                            <td class="trend up">+3.1%</td>
+                        </tr>
+                        <tr>
+                            <td>LTL</td>
+                            <td>191</td>
+                            <td>95.4%</td>
+                            <td>$3.46</td>
+                            <td class="trend flat">+0.4%</td>
+                        </tr>
+                        <tr>
+                            <td>Intermodal</td>
+                            <td>126</td>
+                            <td>98.8%</td>
+                            <td>$1.96</td>
+                            <td class="trend up">+4.8%</td>
+                        </tr>
+                        <tr>
+                            <td>Parcel / final mile</td>
+                            <td>1,082</td>
+                            <td>93.3%</td>
+                            <td>$5.21</td>
+                            <td class="trend down">-1.9%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+
+            <article class="report-card compact">
+                <header>
+                    <p class="eyebrow">Operations log</p>
+                    <h3>Live signal board</h3>
+                </header>
+                <ul class="ops-feed">
+                    <li>
+                        <div>
+                            <strong>QA-9082</strong>
+                            <p>Customer hold cleared · Memphis crossdock</p>
+                        </div>
+                        <span class="tag success">Resolved</span>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>RFQ - Northeast</strong>
+                            <p>Awaiting carrier bids for 32 loads next week</p>
+                        </div>
+                        <span class="tag info">In review</span>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Rail congestion</strong>
+                            <p>NS Chicago terminal at 82% capacity, monitoring</p>
+                        </div>
+                        <span class="tag warning">Watch</span>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Cold chain audit</strong>
+                            <p>Phase 1 completed · Certificates uploaded</p>
+                        </div>
+                        <span class="tag success">Done</span>
+                    </li>
+                </ul>
+            </article>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
-</html>
 
+</html>

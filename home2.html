@@ -31,14 +31,14 @@
                     <a href="service.html" class="nav-link">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#services" class="nav-link">Dashboard</a>
+                    <a href="dash.html" class="nav-link">Dashboard</a>
                 </li>
                 <li class="nav-item">
                     <a href="track.html" class="nav-link">Track</a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
 
                 </li>
                 <li class="nav-item">
@@ -55,9 +55,378 @@
         </div>
     </nav>
 
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero__content">
+                <p class="eyebrow"><b>Stackly Logistics Partner • Est. 1999</b></p>
+                <h1>Delivering smarter transportation across every mile</h1>
+                <p class="lead">
+                    From full-truckload to final-mile, we orchestrate dependable supply chain
+                    experiences with live tracking, predictive ETAs, and carbon-aware routing.
+                </p>
+                <div class="hero__cta">
+                    <button class="btn primary" data-scroll="#contact">Request a quote</button>
+                    <button class="btn ghost" data-scroll="#services">Explore services</button>
+                </div>
+                <div class="hero__trust">
+                    <img src="assets/trans_logo-removebg-preview.png" alt="Partner logos" />
+                    <span>3,500+ active shippers trust Transport.</span>
+                </div>
+            </div>
+            <div class="hero__globe">
+                <div class="globe-visual">
+                    <span class="pulse"></span>
+                    <span class="pulse delay"></span>
+                </div>
+                <div class="status-card">
+                    <p>Live Loads in Transit</p>
+                    <strong>182</strong>
+                    <small>Updated just now</small>
+                </div>
+            </div>
+        </section>
 
+        <!-- Metrics Section -->
+        <section class="metrics" id="metrics">
+            <div class="metric-card">
+                <span class="metric-label">On-Time Rate</span>
+                <span class="metric-value" data-target="98.4">0</span>
+                <span class="metric-suffix">%</span>
+            </div>
+            <div class="metric-card">
+                <span class="metric-label">Global Hubs</span>
+                <span class="metric-value" data-target="42">0</span>
+            </div>
+            <div class="metric-card">
+                <span class="metric-label">Miles Covered / day</span>
+                <span class="metric-value" data-target="280000">0</span>
+            </div>
+            <div class="metric-card">
+                <span class="metric-label">CO₂ Saved (kg)</span>
+                <span class="metric-value" data-target="12000">0</span>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section class="dashboard" id="dashboard">
+            <div class="section-heading">
+                <p class="eyebrow">Network dashboard</p>
+                <h2>Visualize transportation performance in real time</h2>
+                <p>Compare day, week, month, and year performance to keep your network responsive.</p>
+            </div>
+
+            <div class="dashboard-tabs" role="tablist">
+                <button class="dashboard-tab active" data-range="day" role="tab" aria-selected="true">Day</button>
+                <button class="dashboard-tab" data-range="week" role="tab">Week</button>
+                <button class="dashboard-tab" data-range="month" role="tab">Month</button>
+                <button class="dashboard-tab" data-range="year" role="tab">Year</button>
+            </div>
+
+            <div class="dashboard-grid">
+                <article class="chart-card primary">
+                    <div class="card-header">
+                        <div>
+                            <p class="eyebrow">Traffic volume</p>
+                            <h3><span id="rangeLabel">Today's</span> utilization snapshot</h3>
+                        </div>
+                        <span class="range-pill" data-dashboard-range>Day view</span>
+                    </div>
+                    <canvas id="volumeChart" width="700" height="320" aria-label="Transport volume chart" role="img"></canvas>
+                    <div class="chart-legend">
+                        <span><span class="legend-dot primary"></span> Loads moved</span>
+                        <span><span class="legend-dot secondary"></span> Capacity available</span>
+                    </div>
+                </article>
+
+                <article class="chart-card secondary">
+                    <div class="card-header">
+                        <div>
+                            <p class="eyebrow">Lane spotlight</p>
+                            <h3>High-velocity corridors</h3>
+                        </div>
+                        <span class="badge neutral">Live refresh</span>
+                    </div>
+                    <ul class="lane-list" id="laneList">
+                        <!-- Populated via JS -->
+                    </ul>
+                    <div class="lane-footnote">Top 4 lanes ranked by load volume for this view.</div>
+                </article>
+            </div>
+
+            <div class="summary-grid">
+                <article class="summary-card">
+                    <span class="label">Shipments booked</span>
+                    <strong id="statShipments">0</strong>
+                    <small>vs last period: <span id="statShipmentsDelta">+0%</span></small>
+                </article>
+                <article class="summary-card">
+                    <span class="label">On-time rate</span>
+                    <strong id="statOnTime">0%</strong>
+                    <small>Target 98%</small>
+                </article>
+                <article class="summary-card">
+                    <span class="label">Avg. distance</span>
+                    <strong id="statDistance">0 mi</strong>
+                    <small>Per shipment</small>
+                </article>
+                <article class="summary-card">
+                    <span class="label">Emissions delta</span>
+                    <strong id="statEmissions">0%</strong>
+                    <small>Against baseline</small>
+                </article>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services" id="services">
+            <div class="section-heading">
+                <p class="eyebrow">What we deliver</p>
+                <h2>Modular logistics services tailored to your network</h2>
+                <p>Pick a single capability or knit a full-stack transport control tower.</p>
+            </div>
+            <div class="service-grid">
+                <article class="service-card">
+                    <div class="icon-circle">
+                        <img src="assets/home2logo" alt="FTL icon">
+                    </div>
+                    <h3>Linehaul & FTL</h3>
+                    <p>National and cross-border coverage powered by capacity forecasting and lane optimization.</p>
+                    <ul>
+                        <li>Dedicated fleet & spot</li>
+                        <li>Temperature control</li>
+                        <li>Real-time driver updates</li>
+                    </ul>
+                </article>
+                <article class="service-card">
+                    <div class="icon-circle">
+                        <img src="assets/home2logo2.jpg" alt="Warehousing icon">
+                    </div>
+                    <h3>Warehousing & 3PL</h3>
+                    <p>Elastic storage, pick-pack fulfillment, and bonded facilities near major ports and metros.</p>
+                    <ul>
+                        <li>Inventory visibility</li>
+                        <li>Value-added services</li>
+                        <li>Returns handling</li>
+                    </ul>
+                </article>
+                <article class="service-card">
+                    <div class="icon-circle">
+                        <img src="assets/home2logo3.jpg" alt="Last mile icon">
+                    </div>
+                    <h3>Last-Mile & Parcel</h3>
+                    <p>Same-day, next-day, and scheduled deliveries with branded recipient experiences.</p>
+                    <ul>
+                        <li>Order orchestration</li>
+                        <li>Proof-of-delivery</li>
+                        <li>Exception automation</li>
+                    </ul>
+                </article>
+                <article class="service-card">
+                    <div class="icon-circle">
+                        <img src="assets/home2logo4.png" alt="Control tower icon">
+                    </div>
+                    <h3>Control Tower</h3>
+                    <p>Command-center dashboards with predictive alerts, modal recommendations, and cost insights.</p>
+                    <ul>
+                        <li>API / EDI connectivity</li>
+                        <li>Digital twins</li>
+                        <li>Scenario planning</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process" id="process">
+            <div class="section-heading">
+                <p class="eyebrow">How it works</p>
+                <h2>Plan, move, and measure from a single source of truth</h2>
+            </div>
+            <div class="process-timeline">
+                <article class="process-step">
+                    <span class="step-number">01</span>
+                    <h3>Network Blueprint</h3>
+                    <p>Data-backed assessment to benchmark cost-to-serve, emissions, and lead times.</p>
+                </article>
+                <article class="process-step">
+                    <span class="step-number">02</span>
+                    <h3>Smart Execution</h3>
+                    <p>Dynamic routing plus automated carrier matching keeps freight moving even during disruptions.</p>
+                </article>
+                <article class="process-step">
+                    <span class="step-number">03</span>
+                    <h3>Intelligent Oversight</h3>
+                    <p>Live dashboards surface exceptions, while auto workflows notify teams and customers.</p>
+                </article>
+                <article class="process-step">
+                    <span class="step-number">04</span>
+                    <h3>Continuous Optimization</h3>
+                    <p>Quarterly business reviews run scenario simulations to stay ahead of market shifts.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq" id="faq">
+            <div class="section-heading">
+                <p class="eyebrow">Questions? Answered.</p>
+                <h2>Everything you want to know before shipping with us</h2>
+            </div>
+            <div class="faq-list" role="list">
+                <article class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How fast can we launch a new corridor?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Most shippers go live in 10-14 days. We import lane data, onboard carriers, and roll out training in parallel.</p>
+                    </div>
+                </article>
+                <article class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Do you integrate with our TMS or ERP?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. Our API and EDI adapters connect to SAP, Oracle, Manhattan, Blue Yonder, and custom systems.</p>
+                    </div>
+                </article>
+                <article class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What sustainability tracking is available?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Every shipment includes lane-level CO₂ estimates, modal comparisons, and offset recommendations.</p>
+                    </div>
+                </article>
+                <article class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Can we white-label the tracking experience?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Certainly. Embed tracking widgets or host a custom portal with your branding and customer messaging.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Contact / CTA Section -->
+        <section class="cta" id="contact">
+            <div class="cta-content">
+                <h2>Ready to modernize your transportation network?</h2>
+                <p>Share a few details and our solution architects will tailor a deployment plan within one business day.</p>
+                <ul class="contact-list">
+                    <li><strong>24/7 Ops Desk:</strong> +91 8508655677</li>
+                    <li><strong>Email:</strong> stackly@transport.com</li>
+                    <li><strong>HQ:</strong> 170, Tamilnadu India</li>
+                </ul>
+            </div>
+            <form class="cta-form">
+                <label>
+                    Company Name
+                    <input type="text" placeholder="Aqua Corp">
+                </label>
+                <label>
+                    Email
+                    <input type="email" placeholder="ops@acme.com">
+                </label>
+                <label>
+                    Shipment Volume / month
+                    <input type="text" placeholder="e.g. 1,200 loads">
+                </label>
+                <label>
+                    Notes
+                    <textarea rows="3" placeholder="Tell us about your network goals"></textarea>
+                </label>
+                <button type="submit" class="btn primary">Get custom plan</button>
+            </form>
+        </section>
+    </main>
 
     <script src="script.js"></script>
+    <!-- Footer -->
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo-link">
+                    <img src="assets/trans_logo-removebg-preview.png" alt="Transport Logo" class="footer-logo">
+                </a>
+                <p class="footer-text">
+                    We coordinate road, air, and ocean movements with a single control tower, giving you predictable ETAs,
+                    proactive alerts, and a team that treats every shipment like it’s mission critical.
+                </p>
+                <div class="footer-subscribe">
+                    <p class="subscribe-label">Stay ahead of every shipment</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="Enter your email address" class="subscribe-input">
+                       <a href="404.html">
+                        <button type="submit" class="subscribe-button">Subscribe</button>
+                    </a> 
+                    </form>
+                    <p class="subscribe-hint">No spam. Just route updates, best practices, and network alerts.</p>
+                </div>
+            </div>
+
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="service.html">Road &amp; line-haul</a></li>
+                        <li><a href="service.html">Air freight</a></li>
+                        <li><a href="service.html">Ocean &amp; coastal</a></li>
+                        <li><a href="service.html">Warehousing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login.html">Customer portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="track.html">Track a shipment</a></li>
+                        <li><a href="404.html">FAQs</a></li>
+                        <li><a href="404.html">Help center</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <p>© 2025 Transport Network. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#privacy">Privacy</a>
+                    <span>•</span>
+                    <a href="#terms">Terms</a>
+                </div>
+            </div>
+            <div class="footer-bottom-right">
+                <div class="social-icons">
+                     <a href="404.html" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" class="social-icon">
+      </a>
+      <a href="404.html" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" class="social-icon">
+      </a>
+      <a href="404.html" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" class="social-icon">
+      </a>
+      <a href="404.html" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="social-icon">
+      </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

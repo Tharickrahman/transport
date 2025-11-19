@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transport - Track</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="track.css">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -51,9 +51,104 @@
         </div>
     </nav>
 
-   
+    <section class="page-header">
+        <div class="container">
+            <h1>Track Your Shipment</h1>
+            <p>Enter your tracking number to get real-time updates on your package</p>
+        </div>
+    </section>
 
+    <!-- Track Container -->
+    <div class="track-container">
+        
+        <!-- Track Form -->
+        <div class="track-form">
+            <h2><i class="fas fa-search"></i> Track Package</h2>
+            <form id="trackForm">
+                <div class="form-group">
+                    <label for="trackingNumber">Tracking Number</label>
+                    <input type="text" id="trackingNumber" name="trackingNumber"
+                           placeholder="Enter your tracking number (e.g., FT123456789)" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address (Optional)</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com">
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <i class="fas fa-search"></i> Track Now
+                </button>
+            </form>
+        </div>
+
+        <!-- Track Results Box -->
+        <div id="trackResults" class="track-results" style="display:none;">
+            <div class="tracking-status">
+                <div class="status-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="status-info">
+                    <h3 id="statusTitle">In Transit</h3>
+                    <p id="statusDescription">Your package is on the way to its destination</p>
+                </div>
+            </div>
+
+            <!-- Shipment Details -->
+            <div class="shipment-details">
+                <div class="detail-item">
+                    <label>Tracking Number</label>
+                    <span id="detailTracking">FT123456789</span>
+                </div>
+                <div class="detail-item">
+                    <label>Status</label>
+                    <span id="detailStatus">In Transit</span>
+                </div>
+                <div class="detail-item">
+                    <label>Estimated Delivery</label>
+                    <span id="detailDelivery">Dec 25, 2024</span>
+                </div>
+                <div class="detail-item">
+                    <label>Weight</label>
+                    <span id="detailWeight">2.5 kg</span>
+                </div>
+            </div>
+
+            <h3 style="color: var(--primary-color); margin: 2rem 0 1rem;">Tracking History</h3>
+            <div class="timeline" id="timeline">
+                <!-- Timeline will be injected by JS -->
+            </div>
+        </div>
+
+        <!-- Quick Track Section -->
+        <div class="content-card" style="margin-top: 2rem;">
+            <h3 style="color: var(--primary-color); margin-bottom: 1rem;">
+                <i class="fas fa-info-circle"></i> Quick Track Examples
+            </h3>
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                Try these sample tracking numbers to see how tracking works:
+            </p>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                <button class="btn btn-secondary" onclick="quickTrack('FT123456789')">
+                    FT123456789 (In Transit)
+                </button>
+                <button class="btn btn-secondary" onclick="quickTrack('FT987654321')">
+                    FT987654321 (Out for Delivery)
+                </button>
+                <button class="btn btn-secondary" onclick="quickTrack('FT0000000000')">
+                    FT0000000000 (Delivered)
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
     <script src="script.js"></script>
+    <script src="track.js"></script>
+
+
 </body>
 </html>
 

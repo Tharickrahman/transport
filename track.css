@@ -1,0 +1,469 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Navigation Bar */
+.navbar {
+    background: #1a1a2e;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+      
+}
+
+.nav-container {
+    margin: 0 auto;
+    padding: 10px 20px 10px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo - Left Side */
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.logo-img {
+    height: 100px;
+    width: 150px;
+    max-width: 100%;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.logo a:hover .logo-img {
+    transform: scale(1.1);
+    filter: drop-shadow(2px 2px 8px rgba(255, 215, 0, 0.5));
+}
+
+/* Navigation Menu */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    align-items: center;
+
+    /* ⭐ ADDED → Ensures menu stays right */
+    margin-left: auto;
+}
+
+.nav-item {
+    position: relative;
+}
+
+/* Dropdown Menu for Home1 */
+.home-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #1a1a2e;
+    list-style: none;
+    padding: 10px 0;
+    margin: 5px 0 0 0;
+    min-width: 150px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    z-index: 1001;
+}
+
+.home-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-link {
+    display: block;
+    padding: 12px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 0;
+}
+
+.dropdown-link:hover {
+    background: transparent;
+    color: #ffd700;
+    padding-left: 25px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 10px 20px;
+    display: block;
+    border-radius: 25px;
+    background: transparent;
+}
+
+.nav-link:hover {
+    background: transparent;
+    color: #ffd700;
+    transform: translateY(-2px);
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger Animation */
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+    .nav-container {
+        height: auto;
+        padding: 10px 20px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .logo-img {
+        height: 70px;
+        width: 70px;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: #1a1a2e;
+        width: 100%;
+        text-align: center;
+        transition: left 0.3s ease;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.3);
+        padding: 20px 0;
+        gap: 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        width: 100%;
+        padding: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .nav-link {
+        width: 100%;
+        padding: 15px 20px;
+        margin: 5px 20px;
+        border-radius: 10px;
+    }
+
+    .nav-link:hover {
+        background: transparent;
+        color: #ffd700;
+    }
+
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+    }
+
+    .home-dropdown:hover .dropdown-menu {
+        transform: none;
+    }
+
+    .dropdown-link {
+        padding: 10px 40px;
+        font-size: 14px;
+    }
+}
+
+
+/*styles for track.css*/
+/* ------------------------------
+   GLOBAL STYLE
+------------------------------ */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --background-light: #f8f9fa;
+    --text-color: #333;
+    --text-secondary: #555;
+    --card-bg: #fff;
+    --border-radius: 12px;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: var(--background-light);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* ------------------------------
+   PAGE HEADER
+------------------------------ */
+.page-header {
+    background: var(--primary-color);
+    padding: 3rem 1rem;
+    text-align: center;
+    color: #fff;
+      margin-top: 80px;
+       padding-top: 100px;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ------------------------------
+   TRACK CONTAINER
+------------------------------ */
+.track-container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+/* ------------------------------
+   TRACK FORM
+------------------------------ */
+.track-form {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.track-form h2 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-size: 1.6rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: var(--border-radius);
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.btn {
+    padding: 0.8rem 1.3rem;
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background: #555;
+}
+
+/* ------------------------------
+   TRACK RESULTS
+------------------------------ */
+.track-results {
+    display: none;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin-top: 2rem;
+    box-shadow: var(--shadow);
+}
+
+/* Status */
+.tracking-status {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.status-icon i {
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+
+.status-info h3 {
+    font-size: 1.5rem;
+}
+
+/* Shipment Details */
+.shipment-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.detail-item {
+    background: var(--background-light);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid #ddd;
+}
+
+.detail-item label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+/* ------------------------------
+   TIMELINE
+------------------------------ */
+.timeline {
+    margin-top: 1rem;
+    border-left: 3px solid var(--primary-color);
+    padding-left: 1rem;
+    position: relative;
+}
+
+.timeline-item {
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    position: absolute;
+    left: -10px;
+    top: 5px;
+}
+
+.timeline-item h4 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+    color: var(--primary-color);
+}
+
+.timeline-item p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* ------------------------------
+   QUICK TRACK CARD
+------------------------------ */
+.content-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+/* ------------------------------
+   RESPONSIVE
+------------------------------ */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .track-form,
+    .track-results {
+        padding: 1.5rem;
+    }
+}
