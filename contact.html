@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transport - Login</title>
+    <title>Stackly Transportation</title>
     <link rel="stylesheet" href="contact.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logo11-removebg-preview.png">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -34,12 +35,13 @@
                 <li class="nav-item">
                     <a href="track.html" class="nav-link">Track</a>
                 </li>
+                 <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
                 <li class="nav-item">
                     <a href="login.html" class="nav-link">Login</a>
                 </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact</a>
-                </li>
+               
             </ul>
             
             <!-- Hamburger Menu -->
@@ -123,12 +125,26 @@
                 </p>
                 <div class="footer-subscribe">
                     <p class="subscribe-label">Stay ahead of every shipment</p>
-                    <form class="subscribe-form">
-                        <input type="email" placeholder="Enter your email address" class="subscribe-input">
-                       <a href="404.html">
+                     <form class="subscribe-form" onsubmit="return checkEmail(event)">
+                        <input id="emailInput" type="email" placeholder="Enter your email address"
+                            class="subscribe-input">
                         <button type="submit" class="subscribe-button">Subscribe</button>
-                    </a> 
                     </form>
+
+                    <script>
+                        function checkEmail(event) {
+                            const email = document.getElementById("emailInput").value;
+
+                            if (email.trim() === "") {
+                                alert("Please enter your email.");
+                                return false; // stop form submission
+                            }
+
+                            // if email is filled → go to 404.html
+                            window.location.href = "404.html";
+                            return false; // prevent default form submit
+                        }
+                    </script>
                     <p class="subscribe-hint">No spam. Just route updates, best practices, and network alerts.</p>
                 </div>
             </div>
@@ -166,9 +182,9 @@
             <div class="footer-bottom-left">
                 <p>© 2025 Transport Network. All rights reserved.</p>
                 <div class="footer-legal">
-                    <a href="#privacy">Privacy</a>
+                    <a href="404.html">Privacy</a>
                     <span>•</span>
-                    <a href="#terms">Terms</a>
+                    <a href="404.html">Terms</a>
                 </div>
             </div>
             <div class="footer-bottom-right">

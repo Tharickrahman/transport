@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transport - Home2</title>
+    <title>Stackly Transportation</title>
     <link rel="stylesheet" href="home2.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logo11-removebg-preview.png">
 </head>
 
 <body>
@@ -67,7 +68,9 @@
                 </p>
                 <div class="hero__cta">
                     <button class="btn primary" data-scroll="#contact">Request a quote</button>
+                    <a href="service.html">
                     <button class="btn ghost" data-scroll="#services">Explore services</button>
+                    </a>
                 </div>
                 <div class="hero__trust">
                     <img src="assets/trans_logo-removebg-preview.png" alt="Partner logos" />
@@ -361,12 +364,26 @@
                 </p>
                 <div class="footer-subscribe">
                     <p class="subscribe-label">Stay ahead of every shipment</p>
-                    <form class="subscribe-form">
-                        <input type="email" placeholder="Enter your email address" class="subscribe-input">
-                       <a href="404.html">
+                    <form class="subscribe-form" onsubmit="return checkEmail(event)">
+                        <input id="emailInput" type="email" placeholder="Enter your email address"
+                            class="subscribe-input">
                         <button type="submit" class="subscribe-button">Subscribe</button>
-                    </a> 
                     </form>
+
+                    <script>
+                        function checkEmail(event) {
+                            const email = document.getElementById("emailInput").value;
+
+                            if (email.trim() === "") {
+                                alert("Please enter your email.");
+                                return false; // stop form submission
+                            }
+
+                            // if email is filled → go to 404.html
+                            window.location.href = "404.html";
+                            return false; // prevent default form submit
+                        }
+                    </script>
                     <p class="subscribe-hint">No spam. Just route updates, best practices, and network alerts.</p>
                 </div>
             </div>

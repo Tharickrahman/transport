@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transport - Services</title>
+    <title>Stackly Transportation</title>
     <link rel="stylesheet" href="service.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logo11-removebg-preview.png">
 </head>
 
 <body>
@@ -63,8 +64,13 @@
                 <p class="lead">Deploy a single logistics partner for every mode. We synchronize bookings, visibility, and
                     compliance so you can scale to new corridors without onboarding new providers.</p>
                 <div class="hero-actions">
-                    <button class="btn primary" data-scroll="#service-grid">Explore services</button>
-                    <button class="btn ghost" data-scroll="#contact">Talk to an expert</button>
+                    <a href="dash.html">
+                        <button class="btn primary" >Explore services</button>
+                    </a>
+                    <a href="contact.html">
+                         <button class="btn ghost" data-scroll="#contact">Talk to an expert</button>
+                    </a>
+                   
                 </div>
                 <dl class="hero-metrics">
                     <div>
@@ -215,7 +221,9 @@
                         <li><span>Road asset utilization</span><strong>87%</strong></li>
                         <li><span>Waterway emissions delta</span><strong>-22%</strong></li>
                     </ul>
-                    <button class="btn ghost btn-small">Download PDF</button>
+                    <a href="404.html"><button class="btn ghost btn-small">Download PDF</button>
+                    </a>
+                    
                 </article>
                 <article class="report-card">
                     <header>
@@ -253,7 +261,10 @@
             <h2>Ready to connect your air, cargo, road, and waterway moves?</h2>
             <p>Share your lanes and service-level goals, and we’ll deliver a mode mix within 48 hours.</p>
             <div class="cta-actions">
-                <button class="btn primary">Schedule a consult</button>
+                <a href="contact.html">
+                    <button class="btn primary">Schedule a consult</button>
+                </a>
+                
                 <a href="track.html" class="btn ghost">Track shipments</a>
             </div>
         </section>
@@ -272,12 +283,26 @@
                 </p>
                 <div class="footer-subscribe">
                     <p class="subscribe-label">Stay ahead of every shipment</p>
-                    <form class="subscribe-form">
-                        <input type="email" placeholder="Enter your email address" class="subscribe-input">
-                       <a href="404.html">
+                    <form class="subscribe-form" onsubmit="return checkEmail(event)">
+                        <input id="emailInput" type="email" placeholder="Enter your email address"
+                            class="subscribe-input">
                         <button type="submit" class="subscribe-button">Subscribe</button>
-                    </a> 
                     </form>
+
+                    <script>
+                        function checkEmail(event) {
+                            const email = document.getElementById("emailInput").value;
+
+                            if (email.trim() === "") {
+                                alert("Please enter your email.");
+                                return false; // stop form submission
+                            }
+
+                            // if email is filled → go to 404.html
+                            window.location.href = "404.html";
+                            return false; // prevent default form submit
+                        }
+                    </script>
                     <p class="subscribe-hint">No spam. Just route updates, best practices, and network alerts.</p>
                 </div>
             </div>
@@ -315,9 +340,9 @@
             <div class="footer-bottom-left">
                 <p>© 2025 Transport Network. All rights reserved.</p>
                 <div class="footer-legal">
-                    <a href="#privacy">Privacy</a>
+                    <a href="404.html">Privacy</a>
                     <span>•</span>
-                    <a href="#terms">Terms</a>
+                    <a href="404.html">Terms</a>
                 </div>
             </div>
             <div class="footer-bottom-right">
